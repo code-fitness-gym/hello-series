@@ -15,9 +15,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showMessage(sender: UIButton) {
-        let alertControllor = UIAlertController(title: "Welcome to My First App", message: "Hello World", preferredStyle: UIAlertController.Style.alert)
-        alertControllor.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        present(alertControllor, animated: true, completion: nil)
+        // sender 是使用者所按下的按鈕
+        let selectedButton = sender
+        if let wordToLookup = selectedButton.titleLabel?.text {
+            let alertControllor = UIAlertController(title: "Meaning", message: wordToLookup, preferredStyle: UIAlertController.Style.alert)
+            alertControllor.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            present(alertControllor, animated: true, completion: nil)
+        }
     }
 }
 
